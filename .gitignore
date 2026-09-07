@@ -1,0 +1,32 @@
+# ---- Cocos Creator ----
+library/
+temp/
+local/
+profiles/
+build/
+native/engine/common/generated/
+
+# ---- Node / tooling ----
+node_modules/
+*.tsbuildinfo
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+.DS_Store
+debug.log
+
+# ---- Android ----
+**/.gradle/
+**/local.properties
+**/*.jks
+**/*.keystore
+
+# ---- iOS ----
+**/*.xcuserstate
+**/xcuserdata/
+
+# ---- Secrets (should never exist in this repo) ----
+.env
+google-services.json
+GoogleService-Info.plist

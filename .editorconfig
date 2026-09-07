@@ -1,0 +1,31 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.{ts,js}]
+indent_size = 4
+
+[*.{java,kt}]
+indent_size = 4
+
+[*.{m,mm,h}]
+indent_size = 4
+
+[*.gradle]
+indent_size = 4
+
+[*.json]
+indent_size = 2
+
+[*.yml]
+indent_size = 2
+
+# Trailing spaces are meaningful in Markdown (hard line breaks), so don't trim them.
+[*.md]
+trim_trailing_whitespace = false

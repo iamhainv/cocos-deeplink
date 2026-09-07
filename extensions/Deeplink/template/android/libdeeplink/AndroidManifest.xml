@@ -1,0 +1,40 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+
+        <!--
+            DeeplinkInitProvider fires before Application.onCreate() so the
+            JsbBridgeWrapper listener is registered before the first JS frame
+            executes, mirroring the NotificationInitProvider pattern.
+        -->
+        <provider
+            android:name="com.cocos.deeplink.DeeplinkInitProvider"
+            android:authorities="${applicationId}.deeplinkinit"
+            android:exported="false" />
+
+        <!--
+            DeeplinkActivity — transparent trampoline that receives ACTION_VIEW
+            intents carrying deep-link URIs.
+
+            The intent-filter below is a placeholder: the build hook replaces
+            <!-- DEEPLINK_INTENT_FILTER --> with the generated <intent-filter>
+            block containing the correct scheme/host/pathPrefix entries for
+            the project.  Do NOT remove or rename this placeholder comment.
+
+            android:exported="true"    — must be true; external apps deliver URIs
+            android:noHistory="true"   — trampoline should not stay in back-stack
+            android:excludeFromRecents — keep Recents clean
+            Theme.Translucent          — no UI flicker during hand-off
+        -->
+        <activity
+            android:name="com.cocos.deeplink.DeeplinkActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:excludeFromRecents="true"
+            android:noHistory="true">
+            <!-- DEEPLINK_INTENT_FILTER -->
+        </activity>
+
+    </application>
+
+</manifest>

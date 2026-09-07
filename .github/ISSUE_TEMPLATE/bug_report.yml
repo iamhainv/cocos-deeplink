@@ -1,0 +1,91 @@
+name: Bug Report
+description: Report a problem with Cocos Deeplink
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. This extension is
+        **native-only**: its Android/iOS build integration and runtime API
+        no-op (or throw `E_NOT_SUPPORTED`) in Cocos Creator's web preview,
+        so most bugs can only be confirmed on a real device or simulator
+        build. Please fill in every field below.
+
+  - type: input
+    id: creator-version
+    attributes:
+      label: Cocos Creator version
+      description: The exact editor version, e.g. 3.8.8
+      placeholder: "3.8.8"
+    validations:
+      required: true
+
+  - type: input
+    id: extension-version
+    attributes:
+      label: Extension version
+      description: The `version` field in `extensions/Deeplink/package.json`
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Android
+        - iOS
+        - Both (Android + iOS)
+        - Editor / build panel only
+    validations:
+      required: true
+
+  - type: input
+    id: device-os
+    attributes:
+      label: Device and OS version
+      description: e.g. "Pixel 7, Android 14" or "iPhone 13, iOS 17.4". Write "N/A" for editor-only issues.
+      placeholder: "Pixel 7, Android 14"
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro-steps
+    attributes:
+      label: Steps to reproduce
+      description: What did you do, in order?
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: >-
+        Include logs if you have them (Android Logcat, Xcode console, or
+        Cocos Creator's build panel output).
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: real-device
+    attributes:
+      label: Confirmation
+      options:
+        - label: >-
+            I reproduced this on a real Android/iOS device or a native
+            simulator build — not only in Cocos Creator's web preview.
+          required: true

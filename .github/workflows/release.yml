@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 20
+
+      - name: Install extension dependencies
+        working-directory: extensions/Deeplink
+        run: npm ci
+
+      - name: Build extension
+        working-directory: extensions/Deeplink
+        run: npm run build
+
+      - name: Package extension
+        env:
+          ZIP_NAME: "Deeplink-${{ github.ref_name }}.zip"
+        run: |
+          mkdir -p /tmp/release
+          zip -r "/tmp/release/${ZIP_NAME}" "extensions/Deeplink" \
+            -x "extensions/Deeplink/node_modules/*"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2.6.2
+        with:
+          body_path: CHANGELOG.md
+          files: "/tmp/release/Deeplink-${{ github.ref_name }}.zip"

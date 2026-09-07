@@ -1,0 +1,51 @@
+{
+  "name": "deeplink",
+  "title": "i18n:deeplink.title",
+  "package_version": 2,
+  "version": "1.0.0",
+  "author": "iamhainv",
+  "description": "i18n:deeplink.description",
+  "keywords": [
+    "cocos",
+    "cocos-creator",
+    "cocos-creator-extension",
+    "deep-link",
+    "deeplink",
+    "universal-links",
+    "app-links",
+    "android",
+    "ios"
+  ],
+  "contributions": {
+    "builder": "./dist/builder.js",
+    "asset-db": {
+      "mount": {
+        "path": "./assets",
+        "readonly": true
+      }
+    }
+  },
+  "dependencies": {
+    "@types/fs-extra": "^5.0.4",
+    "@types/node": "^14.5.2",
+    "fs-extra": "^10.0.0",
+    "plist": "^3.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "tsc -w"
+  },
+  "license": "MIT",
+  "editor": ">=3.8.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamhainv/cocos-deeplink.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iamhainv/cocos-deeplink/issues"
+  },
+  "homepage": "https://github.com/iamhainv/cocos-deeplink#readme"
+}

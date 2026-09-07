@@ -1,0 +1,27 @@
+* text=auto eol=lf
+
+# Cocos Creator asset metadata is JSON but must never be modified by
+# line-ending normalization tools beyond the default text handling above.
+*.meta text eol=lf
+*.scene text eol=lf
+*.prefab text eol=lf
+
+# Vendored native binaries: never diff, never run through text filters.
+*.xcframework/** binary -text -diff
+*.framework/** binary -text -diff
+*.a binary -text -diff
+*.so binary -text -diff
+*.jar binary -text -diff
+*.aar binary -text -diff
+
+# Common binary asset types.
+*.png binary -text -diff
+*.jpg binary -text -diff
+*.jpeg binary -text -diff
+*.webp binary -text -diff
+*.ico binary -text -diff
+*.mp3 binary -text -diff
+*.ogg binary -text -diff
+*.wav binary -text -diff
+*.ttf binary -text -diff
+*.otf binary -text -diff
